@@ -1,0 +1,2962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tajweed Lesson - What is Tajweed?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .slides-container {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .slide.active {
+            display: flex;
+            opacity: 1;
+            z-index: 10;
+        }
+
+        /* ==================== SLIDE 1 ==================== */
+        .slide-1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .slide-1 h1 {
+            color: white;
+            font-size: 72px;
+            text-align: center;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ==================== SLIDE 2 ==================== */
+        .slide-2 {
+            background: linear-gradient(135deg, #f093fb 0%, #53b7e9 100%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+        }
+
+        .slide-2-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .top-text {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .pizza-image {
+            width: 400px;
+            height: 350px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .pizza-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bottom-text {
+            color: white;
+            font-size: 26px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            line-height: 1.4;
+        }
+
+        /* ==================== SLIDE 3 ==================== */
+        .slide-3 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+            gap: 20px;
+        }
+
+        .slide-3-title {
+            color: white;
+            font-size: 48px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-3-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.8s ease-out;
+            max-width: 1200px;
+        }
+
+        .slide-3-text {
+            flex: 1;
+            color: white;
+            font-size: 20px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+        }
+
+        .slide-3-image {
+            flex: 1;
+            width: 400px;
+            height: 400px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .slide-3-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ==================== SLIDE 4 (QUESTION) ==================== */
+     .slide-4 {
+    background: linear-gradient(135deg, #4bbee7 0%, #b54be6 100%);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;  /* ← غيّر overflow-y إلى hidden */
+}
+
+.slide-4-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;  /* ← غيّر flex-start */
+    gap: 20px;
+    padding-top: 0;
+    padding-bottom: 150px;
+}
+
+        .question-content {
+            text-align: center;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .question-content h2 {
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .emoji {
+            font-size: 60px;
+            margin-bottom: 25px;
+            display: block;
+            animation: bounce 0.8s ease-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .answer-button {
+            padding: 20px 50px;
+            font-size: 22px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #00C853 0%, #1B5E20 100%);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .answer-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 200, 83, 0.5);
+        }
+
+        .answer-button:active {
+            transform: scale(0.95);
+        }
+
+        .answer-content {
+            text-align: center;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .answer-text {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+            margin: 0;
+            padding-bottom:50px;
+        }
+
+        .answer-text strong {
+            color: #FFD700;
+            font-size: 42px;
+            display: block;
+        }
+
+        /* ==================== CONFETTI ==================== */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #FFD700;
+            pointer-events: none;
+            z-index: 200;
+        }
+
+        /* ==================== BALLOONS ==================== */
+        .balloon {
+            position: fixed;
+            width: 50px;
+            height: 70px;
+            border-radius: 50% 50% 50% 0;
+            pointer-events: none;
+            z-index: 200;
+            animation: float-up 4s ease-in forwards;
+        }
+
+        .balloon::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.3);
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes float-up {
+            0% {
+                bottom: 0;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100vh;
+                opacity: 0;
+            }
+        }
+
+               /* ==================== NAVIGATION BUTTONS ==================== */
+        .nav-buttons {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;   /* ← أضف الكود ده */
+            right: 30px;  /* ← احط الزر الآخر */
+            width: auto;
+            display: flex;
+            justify-content: space-between;  /* ← غيّر من flex-end */
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-prev {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .btn-prev:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-next {
+            background-color: #4ecdc4;
+            color: white;
+        }
+
+        .btn-next:hover {
+            background-color: #45b7b0;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(78, 205, 196, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ==================== SLIDE INDICATOR ==================== */
+        .slide-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px 20px;
+            border-radius: 20px;
+            z-index: 100;
+        }
+
+
+                /* ==================== SLIDE 5 ==================== */
+        .slide-5 {
+            background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-5-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .slide-5-top-text {
+            text-align: center;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-5-top-text h2 {
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .slide-5-image {
+            width: 290px;
+            height: 340px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+            overflow: hidden;
+            padding-bottom: 0;
+        }
+
+        .slide-5-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-5-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            padding-bottom: 20px;
+        }
+
+        .slide-5-bottom-text p {
+            margin: 15px 0;
+        }
+
+        .slide-5-bottom-text strong {
+            color: #FFD700;
+            font-size: 28px;
+        }
+
+
+        /* ==================== SLIDE 6 ==================== */
+        .slide-6 {
+            background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-6-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-6-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-6-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-6-content p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-6-buttons {
+            display: flex;
+            gap: 40px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .choice-btn {
+            padding: 25px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+        }
+
+        .no-btn {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+
+        .reason-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .choice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .choice-btn:active {
+            transform: scale(0.95);
+        }
+
+        .slide-6-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .result-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        /* ==================== SLIDE 7 ==================== */
+        .slide-7 {
+            background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-7-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-7-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-7-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-7-content p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-7-words {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .slide-7-words .word {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px 40px;
+            border-radius: 15px;
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
+        }
+
+        .slide-7-words .vs {
+            font-size: 28px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-7-buttons {
+            display: flex;
+            gap: 40px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-7-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        /* ==================== SLIDE 8 ==================== */
+        .slide-8 {
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-8-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-8-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-8-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-8-content p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-8-buttons {
+            display: flex;
+            justify-content: center;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-8-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+
+                /* ==================== SLIDE 9 ==================== */
+        .slide-9 {
+            background: linear-gradient(135deg, #12bb99 0%, #127d68 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-9-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .slide-9-title {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-9-title h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .slide-9-title p {
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-9-content {
+            width: 100%;
+            max-width: 1000px;
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-9-points {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .point {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 5px solid #FFD700;
+            padding: 20px 30px;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .point:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(10px);
+        }
+
+        .point-number {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .point-text {
+            color: white;
+            flex-grow: 1;
+        }
+
+        .point-text strong {
+            font-size: 22px;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .point-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
+
+        .slide-9-footer {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+
+                /* ==================== SLIDE 10 ==================== */
+        .slide-10 {
+            background: linear-gradient(135deg, #b246ed 0%, #e04533 100%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .slide-10 h1 {
+            color: white;
+            font-size: 72px;
+            text-align: center;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+
+                /* ==================== SLIDE 11 ==================== */
+        .slide-11 {
+            background: linear-gradient(135deg, #f942ff 0%, #FF6B35 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-11-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .slide-11-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-11-top-text h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 25px;
+        }
+
+        .slide-11-top-text p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+        }
+
+        .slide-11-image {
+            width: 350px;
+            height: 280px;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+            overflow: hidden;
+        }
+
+        .slide-11-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-11-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-11-bottom-text p {
+            margin: 15px 0;
+        }
+
+        .slide-11-bottom-text strong {
+            color: #FFD700;
+        }
+
+                /* ==================== SLIDE 12 ==================== */
+        .slide-12 {
+            background: linear-gradient(135deg, #D4A574 0%, #A0826D 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-12-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .slide-12-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-12-top-text h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0;
+        }
+
+        .slide-12-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .slide-12-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .slide-12-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 1000px;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-12-bottom-text p {
+            margin: 15px 0;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .slide-12-bottom-text strong {
+            color: #FFD700;
+            font-size: 24px;
+        }
+
+
+                /* ==================== SLIDE 13 ==================== */
+        .slide-13 {
+            background: linear-gradient(135deg, #F39C12 0%, #22e684 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-13-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .slide-13-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-13-top-text h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0;
+        }
+
+        .slide-13-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.8s ease-out;
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        .slide-13-image img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .slide-13-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .slide-13-bottom-text p {
+            margin: 0;
+        }
+
+        .slide-13-bottom-text strong {
+            color: #FFD700;
+        }
+
+
+                /* ==================== SLIDE 14 ==================== */
+        .slide-14 {
+            background: linear-gradient(135deg, #E67E22 0%, #D35400 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-14-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-14-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-14-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-14-content p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .slide-14-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .option-a {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+        }
+
+        .option-b {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+
+        .slide-14-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .slide-14-result .result-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+
+        /* ==================== SLIDE 15 ==================== */
+        .slide-15 {
+            background: linear-gradient(135deg, #3498DB 0%, #2980B9 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-15-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-15-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-15-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-15-content p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .slide-15-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-15-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .slide-15-result .result-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+
+        .choice-btn {
+            padding: 25px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            color: white;
+            max-width: 500px;
+        }
+
+        .choice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .choice-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* ==================== SLIDE 16 ==================== */
+        .slide-16 {
+            background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-16-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .slide-16-title {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-16-title h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .slide-16-title p {
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-16-content {
+            width: 100%;
+            max-width: 1000px;
+            animation: fadeIn 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-16-points {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .slide-16-points .point {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 5px solid #FFD700;
+            padding: 20px 30px;
+            border-radius: 10px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .slide-16-points .point:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(10px);
+        }
+
+        .slide-16-points .point-number {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .slide-16-points .point-text {
+            color: white;
+            flex-grow: 1;
+        }
+
+        .slide-16-points .point-text strong {
+            font-size: 22px;
+            color: #FFD700;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .slide-16-points .point-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin: 0;
+        }
+
+        .slide-16-footer {
+            text-align: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: slideInUp 0.8s ease-out 0.4s backwards;
+        }
+
+              .slide-1-credit {
+            position: fixed;
+            bottom: 10px;  /* ← بعيد عن الأزرار */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 28px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            
+            z-index: 50;
+        }
+
+
+                /* ==================== SLIDE 17 ==================== */
+        .slide-17 {
+            background: linear-gradient(135deg, #229150 0%, #27AE60 100%);
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .slide-17 h1 {
+            color: white;
+            font-size: 72px;
+            text-align: center;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            letter-spacing: 2px;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        /* ==================== SLIDE 18 ==================== */
+        .slide-18 {
+            background: linear-gradient(135deg, #E91E63 0%, #C2185B 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-18-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-18-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-18-top-text h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0;
+        }
+
+        .slide-18-names {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            animation: zoomIn 0.8s ease-out;
+        }
+
+        .name-box {
+            background: white;
+            padding: 30px 50px;
+            border-radius: 15px;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            min-width: 150px;
+            text-align: center;
+        }
+
+        .name-box.tom {
+            color: #FF6B6B;
+            border: 5px solid #FF6B6B;
+        }
+
+        .name-box.tim {
+            color: #4ECDC4;
+            border: 5px solid #4ECDC4;
+        }
+
+        .vs-text {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-18-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            line-height: 1.8;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .slide-18-bottom-text p {
+            margin: 10px 0;
+        }
+
+
+                /* ==================== SLIDE 19 ==================== */
+        .slide-19 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-19-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            gap: 30px;
+            padding-bottom: 100px;
+        }
+
+        .slide-19-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-19-top-text h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0;
+        }
+
+        .slide-19-verse {
+            text-align: center;
+            color: white;
+            animation: zoomIn 0.8s ease-out;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px 50px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .slide-19-verse .arabic-verse {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-19-verse .verse-meaning {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #FFD700;
+        }
+
+        .slide-19-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            flex-wrap: wrap;
+        }
+
+        .comparison-box {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            min-width: 200px;
+        }
+
+        .comparison-box.qul {
+            border: 4px solid #4ECDC4;
+        }
+
+        .comparison-box.kul {
+            border: 4px solid #FF6B6B;
+        }
+
+        .comparison-word {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .comparison-box.qul .comparison-word {
+            color: #4ECDC4;
+        }
+
+        .comparison-box.kul .comparison-word {
+            color: #FF6B6B;
+        }
+
+        .comparison-sound {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .comparison-meaning {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .vs-circle {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .slide-19-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            line-height: 1.8;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 20px 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .slide-19-bottom-text p {
+            margin: 10px 0;
+        }
+
+        /* ==================== SLIDE 20 ==================== */
+        .slide-20 {
+            background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-20-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-20-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-20-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-20-content p {
+            font-size: 32px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .slide-20-buttons {
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .detective-btn {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            padding: 25px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            color: white;
+            max-width: 600px;
+        }
+
+        .detective-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .detective-btn:active {
+            transform: scale(0.95);
+        }
+
+        .slide-20-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .slide-20-result .result-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+        /* ==================== SLIDE 21 ==================== */
+        .slide-21 {
+            background: linear-gradient(135deg, #FFD93D 0%, #FFA502 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-21-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;  /* ← غيّر من space-around */
+            gap: 15px;
+            padding-bottom: 120px;
+        }
+
+        .slide-21-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+            margin-top: 10px;
+        }
+
+        .slide-21-top-text h2 {
+            font-size: 44px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0;
+            color: #333;
+        }
+
+        .slide-21-image {
+            animation: zoomIn 0.8s ease-out;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+          
+        }
+
+        .slide-21-bottom-text {
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            line-height: 1.3;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 15px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            margin-top: 40px;  /* ← نزّل الكلام شوية */
+        }
+
+        .slide-21-bottom-text p {
+            margin: 0px 0;
+        }
+
+        .slide-21-bottom-text strong {
+            color: #D32F2F;
+            font-size: 20px;
+        }
+
+                /* ==================== SLIDE 22 ==================== */
+        .slide-22 {
+            background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+            padding: 40px;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide-22-wrapper {
+            width: 100%;
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            padding-bottom: 120px;
+        }
+
+        .slide-22-top-text {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+            margin-top: 10px;
+        }
+
+        .slide-22-top-text h2 {
+            font-size: 44px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin: 0;
+        }
+
+        .slide-22-verse {
+            text-align: center;
+            color: white;
+            animation: zoomIn 0.8s ease-out;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            margin-top: 15px;
+        }
+
+        .slide-22-verse .arabic-verse {
+            font-size: 42px;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .slide-22-verse .verse-meaning {
+            font-size: 20px;
+            margin-top: 8px;
+            color: #FFD700;
+        }
+
+        .slide-22-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .slide-22-comparison .comparison-box {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            min-width: 180px;
+        }
+
+        .slide-22-comparison .comparison-box.fatha {
+            border: 4px solid #FF6B6B;
+        }
+
+        .slide-22-comparison .comparison-box.damma {
+            border: 4px solid #4ECDC4;
+        }
+
+        .comparison-letter {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .slide-22-comparison .comparison-box.fatha .comparison-letter {
+            color: #FF6B6B;
+        }
+
+        .slide-22-comparison .comparison-box.damma .comparison-letter {
+            color: #4ECDC4;
+        }
+
+        .comparison-diacritic {
+            font-size: 16px;
+            color: #999;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .comparison-meaning {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .slide-22-comparison .vs-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            flex-shrink: 0;
+        }
+
+        .slide-22-bottom-text {
+            text-align: center;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            line-height: 1.3;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            margin-top: 25px;
+        }
+
+        .slide-22-bottom-text p {
+            margin: 0;
+        }
+
+        /* ==================== SLIDE 23 ==================== */
+        .slide-23 {
+            background: linear-gradient(135deg, #9C27B0 0%, #673AB7 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-23-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-23-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-23-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-23-content p {
+            font-size: 28px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .slide-23-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-23-buttons .option-a {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+
+        .slide-23-buttons .option-b {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+        }
+
+        .slide-23-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .slide-23-result .result-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+
+        /* ==================== SLIDE 24 ==================== */
+        .slide-24 {
+            background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-24-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .slide-24-content {
+            text-align: center;
+            color: white;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .slide-24-content h2 {
+            font-size: 54px;
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+        }
+
+        .slide-24-content p {
+            font-size: 32px;
+            line-height: 1.8;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+        }
+
+        .slide-24-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            animation: slideInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .slide-24-buttons .option-a {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+        }
+
+        .slide-24-buttons .option-b {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            max-width: 650px;
+        }
+
+        .slide-24-buttons .choice-btn {
+            padding: 25px 50px;
+            font-size: 22px;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .slide-24-buttons .choice-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .slide-24-buttons .choice-btn:active {
+            transform: scale(0.95);
+        }
+
+        .slide-24-result {
+            text-align: center;
+            color: white;
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .slide-24-result .result-text {
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.8;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="slides-container">
+                <!-- SLIDE 1: Title -->
+        <div class="slide slide-1 active">
+            <h1>What is Tajweed?</h1>
+            <p class="slide-1-credit">Miss: Nourhan Ali</p>
+        </div>
+
+        <!-- SLIDE 2: Pizza Analogy -->
+        <div class="slide slide-2">
+            <div class="slide-2-content">
+                <div class="top-text">
+                    🍕 Do you know what makes a pizza REALLY delicious? 🍕
+                </div>
+
+                <div class="pizza-image">
+                    <img src="pizza.jpg" alt="Plain Pizza Dough">
+                </div>
+
+                <div class="bottom-text">
+                    It's not just plain bread! 
+                    <br><br>
+                    Just like a special recipe makes pizza magical...
+                    <br>
+                    🌟 Tajweed is the SECRET RECIPE for the Holy Qur'an! 🌟
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: A Short Story -->
+        <div class="slide slide-3">
+            <div class="slide-3-title">
+                📖 The Sacred Mountain 📖
+            </div>
+
+            <div class="slide-3-content">
+                <div class="slide-3-text">
+                    <strong style="font-size: 24px; color: #FFD700;">🏔️ A Long Time Ago:</strong>
+                    <br><br>
+                    The Prophet Muhammad ﷺ used to teach the Qur'an to his followers on Mount Uhud. He didn't just read it quickly... he read it SLOWLY and BEAUTIFULLY, making sure every letter was clear and perfect!
+                    <br><br>
+                    That's what <strong>Tajweed</strong> means! 
+                    <br><br>
+                    It's the art of reading the Qur'an with rules, clarity, and beauty! 🌟
+                </div>
+
+                <div class="slide-3-image">
+                    <img src="cave.jpg" alt="Sacred Mountain">
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: QUESTION -->
+        <div class="slide slide-4">
+            <div class="slide-4-wrapper">
+                <!-- QUESTION -->
+                <div class="question-content" id="questionContent">
+                    <span class="emoji">❓❓❓</span>
+                    <h2>If 'Tajweed' means making something super cool, polished, and perfect... Who can guess what 'Tajweed' means when we read the Qur'an?</h2>
+                </div>
+
+                <!-- BUTTON -->
+                <button class="answer-button" id="answerButton" onclick="revealAnswer()">
+                    🎯 CLICK TO REVEAL THE ANSWER! 🎯
+                </button>
+
+                <!-- ANSWER -->
+                <div class="answer-content" id="answerContent" style="display: none;">
+                    <div class="answer-text">
+                        <strong>🎉 BOOM! YOU NAILED IT! 🎉</strong>
+                        <br>
+                        Tajweed means reciting <strong>EVERY LETTER</strong> of the Qur'an <strong>CORRECTLY</strong>!
+                        <br><br>
+                        Giving the Holy Qur'an its <strong>FULL RIGHTS!</strong> 👑✨
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          <!-- SLIDE 5: Letters Have Rights -->
+        <div class="slide slide-5">
+            <div class="slide-5-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-5-top-text">
+                    <h2>🔥 Letters Have RIGHTS?! 🔥</h2>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="slide-5-image">
+                    <img src="wondering-face.jpg" alt="Wondering Face">
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-5-bottom-text">
+                    <p><strong>Rights:</strong> Powers that stay with letters FOREVER! ⚡ خص ضغط قظ ⚡ (Heavy sound = Always Heavy!)</p>
+                    <br>
+                    <p><strong>Dues:</strong> Powers that CHANGE! 🦎 (Like a chameleon—sometimes heavy, sometimes light!)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Quick-Fire Question -->
+        <div class="slide slide-6">
+            <div class="slide-6-wrapper">
+                <div class="slide-6-content">
+                    <h2>⚡ QUICK-FIRE QUESTION! ⚡</h2>
+                    <p>If I read the Qur'an super fast like a racing car and mess up the letters...</p>
+                    <p style="font-size: 36px; margin: 30px 0;"><strong>Am I doing Tajweed?</strong></p>
+                </div>
+
+                <div class="slide-6-buttons">
+                    <button class="choice-btn yes-btn" onclick="answerQ6('YES')">
+                        ✅ YES
+                    </button>
+                    <button class="choice-btn no-btn" onclick="answerQ6('NO')">
+                        ❌ NO
+                    </button>
+                </div>
+
+                <div class="slide-6-result" id="result6" style="display: none;">
+                    <div class="result-text" id="resultText6"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Spot the Difference -->
+        <div class="slide slide-7">
+            <div class="slide-7-wrapper">
+                <div class="slide-7-content">
+                    <h2>🔍 SPOT THE DIFFERENCE CHALLENGE! 🔍</h2>
+                    <p>Listen carefully:</p>
+                    <div class="slide-7-words">
+                        <div class="word">Qul (قُل)</div>
+                        <span class="vs">VS</span>
+                        <div class="word">Kul (كُل)</div>
+                    </div>
+                    <p style="font-size: 28px; margin: 30px 0;"><strong>Is it the SAME letter?!</strong></p>
+                </div>
+
+                <div class="slide-7-buttons">
+                    <button class="choice-btn yes-btn" onclick="answerQ7('YES')">
+                        ✅ SAME LETTER
+                    </button>
+                    <button class="choice-btn no-btn" onclick="answerQ7('NO')">
+                        ❌ DIFFERENT LETTERS
+                    </button>
+                </div>
+
+                <div class="slide-7-result" id="result7" style="display: none;">
+                    <div class="result-text" id="resultText7"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Brain Teaser -->
+        <div class="slide slide-8">
+            <div class="slide-8-wrapper">
+                <div class="slide-8-content">
+                    <h2>🧠 BRAIN TEASER! 🧠</h2>
+                    <p>Why do you think Angel Jibreel taught the Qur'an with Tajweed instead of just normal reading?</p>
+                    <p style="font-size: 24px; margin: 40px 0;"><strong>Who can think of the ULTIMATE reason?</strong></p>
+                </div>
+
+                <div class="slide-8-buttons">
+                    <button class="choice-btn reason-btn" onclick="answerQ8('PRESERVE')">
+                        🛡️ TO PRESERVE ALLAH'S WORDS EXACTLY AS REVEALED!
+                    </button>
+                </div>
+
+                <div class="slide-8-result" id="result8" style="display: none;">
+                    <div class="result-text" id="resultText8"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Summary & Review -->
+        <div class="slide slide-9">
+            <div class="slide-9-wrapper">
+                <div class="slide-9-title">
+                    <h2>📚 LET'S RECAP! 📚</h2>
+                    <p>What We Learned Today:</p>
+                </div>
+
+                <div class="slide-9-content">
+                    <div class="slide-9-points">
+                        <div class="point">
+                            <span class="point-number">1️⃣</span>
+                            <div class="point-text">
+                                <strong>What is Tajweed?</strong>
+                                <p>Tajweed means to make something beautiful, polished, and perfect! 🌟</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">2️⃣</span>
+                            <div class="point-text">
+                                <strong>The Secret Recipe:</strong>
+                                <p>Just like pizza needs cheese and sauce... the Qur'an has a special recipe = Tajweed! 🍕</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">3️⃣</span>
+                            <div class="point-text">
+                                <strong>Letter Rights:</strong>
+                                <p>Every letter has RIGHTS (permanent powers) and DUES (temporary powers)! ⚡</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">4️⃣</span>
+                            <div class="point-text">
+                                <strong>Why Tajweed?</strong>
+                                <p>To preserve Allah's words EXACTLY as revealed by Angel Jibreel! 👑✨</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">5️⃣</span>
+                            <div class="point-text">
+                                <strong>The Ultimate Goal:</strong>
+                                <p>Read the Qur'an with CARE, RULES, and PERFECTION! 💎</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-9-footer">
+                    <p>🎊 <strong>Great Job!</strong> You're now a Tajweed Detective! 🎊</p>
+                </div>
+            </div>
+        </div>
+
+                <!-- SLIDE 10: History of Tajweed -->
+        <div class="slide slide-10">
+            <h1>History of Tajweed</h1>
+        </div>
+
+
+                <!-- SLIDE 11: History of Tajweed - The Attention Grabber -->
+        <div class="slide slide-11">
+            <div class="slide-11-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-11-top-text">
+                    <h2>🕊️ A Magical Ability! 🕊️</h2>
+                    <p>Imagine you were born with a magical ability to fly...</p>
+                    <p style="font-size: 36px; margin: 20px 0;"><strong>Would you ever need a 'Flying School'?</strong></p>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="slide-11-image">
+                    <img src="birds.jpg" alt="Birds Flying at Sunset">
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-11-bottom-text">
+                    <p><strong>1,400 years ago:</strong> The companions of Prophet Muhammad ﷺ were like natural flyers! 🕊️</p>
+                    <br>
+                    <p>They <strong>NEVER opened a Tajweed textbook</strong> in their lives! 📚❌</p>
+                    <br>
+                    <p>Yet they recited the Qur'an with <strong>PERFECT Tajweed!</strong> 👑✨</p>
+                    <br>
+                    <p style="font-size: 24px; color: #FFD700;"><strong>HOW IS THAT EVEN POSSIBLE?!</strong></p>
+                </div>
+            </div>
+        </div>
+
+                     <!-- SLIDE 12: History of Tajweed - The Short Story -->
+        <div class="slide slide-12">
+            <div class="slide-12-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-12-top-text">
+                    <h2>📖 How Tajweed Was Born 📖</h2>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="slide-12-image">
+                    <img src="arab.jpg" alt="Scholars Teaching Tajweed">
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-12-bottom-text">
+                    <p>The wise scholars protected the Qur'an by writing down the Tajweed rules! ✍️📚</p>
+                </div>
+            </div>
+        </div>
+
+
+                <!-- SLIDE 13: Tajweed is Special for Qur'an Only -->
+        <div class="slide slide-13">
+            <div class="slide-13-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-13-top-text">
+                    <h2>🍎 Did Arabs speak Tajweed at the market?! 🍎</h2>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="slide-13-image">
+                    <img src="apple.jpg" alt="Arabic Market Scene">
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-13-bottom-text">
+                    <p>Tajweed is a SPECIAL VIP treatment reserved ONLY for the Holy Qur'an! 👑✨</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Challenge Question -->
+        <div class="slide slide-14">
+            <div class="slide-14-wrapper">
+                <div class="slide-14-content">
+                    <h2>⚡ CHALLENGE QUESTION! ⚡</h2>
+                    <p>When non-Arabs entered Islam and languages mixed together, why did scholars write down Tajweed rules?</p>
+                </div>
+
+                <div class="slide-14-buttons">
+                    <button class="choice-btn option-a" onclick="answerQ14('A')">
+                        ❌ For fun and games
+                    </button>
+                    <button class="choice-btn option-b" onclick="answerQ14('B')">
+                        ✅ To SAVE the correct recitation of the Qur'an from mistakes!
+                    </button>
+                </div>
+
+                <div class="slide-14-result" id="result14" style="display: none;">
+                    <div class="result-text" id="resultText14"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: Fast Quiz -->
+        <div class="slide slide-15">
+            <div class="slide-15-wrapper">
+                <div class="slide-15-content">
+                    <h2>🚀 FAST QUIZ! 🚀</h2>
+                    <p>Can we use Tajweed rules when we read a storybook or news?</p>
+                </div>
+
+                <div class="slide-15-buttons">
+                    <button class="choice-btn option-a" onclick="answerQ15('A')">
+                        ❌ Option A: YES
+                    </button>
+                    <button class="choice-btn option-b" onclick="answerQ15('B')">
+                        ✅ Option B: NO, Tajweed is ONLY for Allah's Holy Qur'an!
+                    </button>
+                </div>
+
+                <div class="slide-15-result" id="result15" style="display: none;">
+                    <div class="result-text" id="resultText15"></div>
+                </div>
+            </div>
+        </div>
+
+               <!-- SLIDE 16: History of Tajweed - Summary & Review -->
+        <div class="slide slide-16">
+            <div class="slide-16-wrapper">
+                <div class="slide-16-title">
+                    <h2>📚 HISTORY OF TAJWEED RECAP! 📚</h2>
+                    <p>What We Learned:</p>
+                </div>
+
+                <div class="slide-16-content">
+                    <div class="slide-16-points">
+                        <div class="point">
+                            <span class="point-number">1️⃣</span>
+                            <div class="point-text">
+                                <strong>Ancient Arabic Speech:</strong>
+                                <p>Arabs naturally spoke pure Classical Arabic with correct pronunciations! No textbooks needed! 🎵</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">2️⃣</span>
+                            <div class="point-text">
+                                <strong>Qur'an-Exclusive Rules:</strong>
+                                <p>Tajweed rules (Ghunnah, Madd, Idgham) are ONLY for the Qur'an! 👑</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">3️⃣</span>
+                            <div class="point-text">
+                                <strong>Why Rules Were Recorded:</strong>
+                                <p>Islam expanded, languages mixed, mistakes appeared! Scholars wrote down rules to save the Qur'an! ✍️</p>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <span class="point-number">4️⃣</span>
+                            <div class="point-text">
+                                <strong>Tajweed Today:</strong>
+                                <p>Essential for everyone! Arabs and non-Arabs study it to recite exactly as revealed! 📖✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slide-16-footer">
+                    <p>🎊 <strong>Perfect!</strong> You now understand Tajweed's amazing history! 🎊</p>
+                </div>
+            </div>
+        </div>
+
+                <!-- SLIDE 17: The Purpose of Tajweed -->
+        <div class="slide slide-17">
+            <h1>The Purpose of Tajweed</h1>
+        </div>
+
+                <!-- SLIDE 18: Twin Letters in Arabic -->
+        <div class="slide slide-18">
+            <div class="slide-18-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-18-top-text">
+                    <h2>🔤 Imagine you have a twin brothers or friends? 🔤</h2>
+                </div>
+
+                <!-- CENTER NAMES -->
+                <div class="slide-18-names">
+                    <div class="name-box tom">Tom</div>
+                    <span class="vs-text">VS</span>
+                    <div class="name-box tim">Tim</div>
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-18-bottom-text">
+                    <p>They sound alike, but they're DIFFERENT! Just like Arabic twin letters!</p>
+                    <br>
+                    <p>Taa (ت) and Taa (ط) sound similar, but swapping them changes the word completely! 🎯</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 19: Surah Al-Ikhlas Story -->
+        <div class="slide slide-19">
+            <div class="slide-19-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-19-top-text">
+                    <h2>📖 A Real Qur'anic Example! 📖</h2>
+                </div>
+
+                <!-- QUR'AN VERSE -->
+                <div class="slide-19-verse">
+                    <p class="arabic-verse">قُلْ هُوَ اللَّهُ أَحَدٌ</p>
+                    <p class="verse-meaning">(From Surah Al-Ikhlas)</p>
+                </div>
+
+                <!-- COMPARISON TABLE -->
+                <div class="slide-19-comparison">
+                    <div class="comparison-box qul">
+                        <div class="comparison-word">Qul (قُلْ)</div>
+                        <div class="comparison-sound">Heavy ق Sound</div>
+                        <div class="comparison-meaning">Say! 📢</div>
+                    </div>
+
+                    <div class="vs-circle">VS</div>
+
+                    <div class="comparison-box kul">
+                        <div class="comparison-word">Kul (كُلْ)</div>
+                        <div class="comparison-sound">Light ك Sound</div>
+                        <div class="comparison-meaning">Eat! 🍕</div>
+                    </div>
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-19-bottom-text">
+                    <p>Imagine saying 'EAT: He is Allah' instead of 'SAY: He is Allah'! 😱</p>
+                    <br>
+                    <p>This is why Tajweed is SO IMPORTANT! Every letter must be perfect! ✨👑</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 20: Purpose of Tajweed Question -->
+        <div class="slide slide-20">
+            <div class="slide-20-wrapper">
+                <div class="slide-20-content">
+                    <h2>🔍 Deducing the Rule! 🔍</h2>
+                    <p>What is the MAIN PURPOSE of studying Tajweed?</p>
+                </div>
+
+                <div class="slide-20-buttons">
+                    <button class="choice-btn detective-btn" onclick="answerQ20('CORRECT')">
+                        ✅ To protect our recitation from errors and preserve the Qur'an's exact meanings!
+                    </button>
+                </div>
+
+                <div class="slide-20-result" id="result20" style="display: none;">
+                    <div class="result-text" id="resultText20"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: Makhraj and Sifaat -->
+        <div class="slide slide-21">
+            <div class="slide-21-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-21-top-text">
+                    <h2>🏠 Every Letter Has an Exit Point! 🏠</h2>
+                </div>
+
+                <!-- IMAGE -->
+                <div class="slide-21-image">
+                    <img src="hamza.jpg" alt="Letter Articulation Points">
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-21-bottom-text">
+                    <p><strong>Makhraj (Exit point):</strong> The exact spot where the letter is born (throat, tongue, lips)! 🏠</p>
+                    <br>
+                    <p><strong>Sifaat (Attributes):</strong> Is the letter heavy like ط or light like ت? 💪✨</p>
+                    <br>
+                    <p>Change the exit point = Change the word! عَلِيمٌ (All-Knowing) vs أَلِيمٌ (Painful)! 🎯</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 22: Vowels Change Everything -->
+        <div class="slide slide-22">
+            <div class="slide-22-wrapper">
+                <!-- TOP TEXT -->
+                <div class="slide-22-top-text">
+                    <h2>🔤 One Small Vowel Changes EVERYTHING! 🔤</h2>
+                </div>
+
+                <!-- QUR'AN VERSE -->
+                <div class="slide-22-verse">
+                    <p class="arabic-verse">ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ</p>
+                    <p class="verse-meaning">(From Surah Al-Fatihah)</p>
+                </div>
+
+                <!-- COMPARISON TABLE -->
+                <div class="slide-22-comparison">
+                    <div class="comparison-box fatha">
+                        <div class="comparison-letter">تَ (Fatha)</div>
+                        <div class="comparison-diacritic">◌َ (Open)</div>
+                        <div class="comparison-meaning">YOU gave blessings! 👊</div>
+                    </div>
+
+                    <div class="vs-circle">VS</div>
+
+                    <div class="comparison-box damma">
+                        <div class="comparison-letter">تُ (Damma)</div>
+                        <div class="comparison-diacritic">◌ُ (Round)</div>
+                        <div class="comparison-meaning">I gave blessings! 👉</div>
+                    </div>
+                </div>
+
+                <!-- BOTTOM TEXT -->
+                <div class="slide-22-bottom-text">
+                    <p>One small vowel = Completely different meaning! That's why Tajweed matters! ✨👑</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 23: Quick Quiz - Makhraj or Sifaat -->
+        <div class="slide slide-23">
+            <div class="slide-23-wrapper">
+                <div class="slide-23-content">
+                    <h2>⚡ QUICK QUIZ! ⚡</h2>
+                    <p>When I ask: 'Does the letter come from the lips or the throat?'</p>
+                    <p style="font-size: 32px; margin: 20px 0;"><strong>Am I asking about its Makhraj or its Sifaat?</strong></p>
+                </div>
+
+                <div class="slide-23-buttons">
+                    <button class="choice-btn option-a" onclick="answerQ23('A')">
+                        ✅ MAKHRAJ (Address)!
+                    </button>
+                    <button class="choice-btn option-b" onclick="answerQ23('B')">
+                        ❌ SIFAAT (Character)
+                    </button>
+                </div>
+
+                <div class="slide-23-result" id="result23" style="display: none;">
+                    <div class="result-text" id="resultText23"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 24: Why Study Tajweed Quiz -->
+        <div class="slide slide-24">
+            <div class="slide-24-wrapper">
+                <div class="slide-24-content">
+                    <h2>🎯 WHY DO WE STUDY TAJWEED? 🎯</h2>
+                    <p>Which one is the REAL reason?</p>
+                </div>
+
+                <div class="slide-24-buttons">
+                    <button class="choice-btn option-a" onclick="answerQ24('A')">
+                        ❌ Option A: Just to pass an exam
+                    </button>
+                    <button class="choice-btn option-b" onclick="answerQ24('B')">
+                        ✅ Option B: To recite the Qur'an beautifully and accurately, exactly as Prophet Muhammad (SAW) received it!
+                    </button>
+                </div>
+
+                <div class="slide-24-result" id="result24" style="display: none;">
+                    <div class="result-text" id="resultText24"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+      
+
+
+    <!-- Slide Indicator -->
+    <div class="slide-indicator">
+        <span id="current-slide">1</span> / <span id="total-slides">24</span>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button class="btn btn-prev" id="prev-btn" onclick="prevSlide()">← Previous</button>
+        <button class="btn btn-next" id="next-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            document.getElementById('current-slide').textContent = n + 1;
+
+            // Reset answer on new slide
+            document.getElementById('answerContent').style.display = 'none';
+            document.getElementById('answerButton').style.display = 'block';
+
+            // Update button states
+            document.getElementById('prev-btn').disabled = n === 0;
+            document.getElementById('next-btn').disabled = n === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                showSlide(currentSlide);
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                showSlide(currentSlide);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Reveal answer function
+        function revealAnswer() {
+            const answerContent = document.getElementById('answerContent');
+            const answerButton = document.getElementById('answerButton');
+
+            // Show answer and hide button
+            answerContent.style.display = 'block';
+            answerButton.style.display = 'none';
+
+            // Start celebrations
+            createConfetti();
+            createBalloons();
+        }
+
+        // Create confetti animation
+        function createConfetti() {
+            const colors = ['#FFD700', '#00BFFF', '#FF69B4', '#00C853', '#FF5252'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = Math.random() * window.innerHeight + 'px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `fall ${2 + Math.random() * 2}s linear forwards`;
+                
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Create falling confetti animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Create balloons
+        function createBalloons() {
+            const colors = ['#FF5252', '#4CAF50', '#2196F3', '#FFC107', '#FF9800', '#9C27B0'];
+            
+            for (let i = 0; i < 15; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * window.innerWidth + 'px';
+                balloon.style.bottom = '-100px';
+                balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.borderBottomColor = 'transparent';
+                balloon.style.animationDelay = i * 0.1 + 's';
+                
+                document.body.appendChild(balloon);
+
+                setTimeout(() => balloon.remove(), 4000);
+            }
+        }
+
+        // Initialize
+        showSlide(0);
+
+        // SLIDE 6: Quick-Fire Question
+        function answerQ6(answer) {
+            const resultDiv = document.getElementById('result6');
+            const resultText = document.getElementById('resultText6');
+            
+            if (answer === 'NO') {
+                resultText.innerHTML = `
+                    🎉 <strong>CORRECT!</strong> 🎉
+                    <br><br>
+                    NO WAY! Fast reading with mistakes = <strong>NOT Tajweed!</strong>
+                    <br><br>
+                    Tajweed means reading with <strong>CARE, RULES, and PERFECTION!</strong> 👑
+                `;
+                createConfetti();
+                createBalloons();
+            } else {
+                resultText.innerHTML = `
+                    ❌ <strong>NOT QUITE!</strong> ❌
+                    <br><br>
+                    Tajweed requires <strong>CARE and ACCURACY</strong>, not speed! 🚀
+                    <br><br>
+                    Try thinking about it differently! 💡
+                `;
+            }
+            resultDiv.style.display = 'block';
+        }
+
+        // SLIDE 7: Spot the Difference
+        function answerQ7(answer) {
+            const resultDiv = document.getElementById('result7');
+            const resultText = document.getElementById('resultText7');
+            
+            if (answer === 'NO') {
+                resultText.innerHTML = `
+                    🎉 <strong>AMAZING!</strong> 🎉
+                    <br><br>
+                    قُل (Qul) = SAY | كُل (Kul) = EAT
+                    <br><br>
+                    <strong>DIFFERENT LETTERS!</strong> 🔤
+                    <br>
+                    Every letter has a <strong>UNIQUE SUPERPOWER!</strong> ⚡
+                `;
+                createConfetti();
+                createBalloons();
+            } else {
+                resultText.innerHTML = `
+                    ❌ <strong>NOT YET!</strong> ❌
+                    <br><br>
+                    Look closely! These are <strong>DIFFERENT</strong> letters with different meanings! 🔍
+                    <br><br>
+                    That's why Tajweed is SO important! 💎
+                `;
+            }
+            resultDiv.style.display = 'block';
+        }
+
+        // SLIDE 8: Brain Teaser
+        function answerQ8(answer) {
+            const resultDiv = document.getElementById('result8');
+            const resultText = document.getElementById('resultText8');
+            
+            if (answer === 'PRESERVE') {
+                resultText.innerHTML = `
+                    🏆 <strong>EXACTLY RIGHT!</strong> 🏆
+                    <br><br>
+                    <strong>To preserve Allah's words</strong> exactly as revealed! 📖
+                    <br><br>
+                    Jibreel taught Tajweed so the Qur'an stays <strong>PURE and PERFECT</strong> forever! ✨👑
+                    <br><br>
+                    <strong>THAT'S THE REAL SUPERPOWER!</strong> 💪
+                `;
+                createConfetti();
+                createBalloons();
+            }
+            resultDiv.style.display = 'block';
+        }
+
+
+                // SLIDE 14: Challenge Question
+        function answerQ14(answer) {
+            const resultDiv = document.getElementById('result14');
+            const resultText = document.getElementById('resultText14');
+            
+            if (answer === 'B') {
+                resultText.innerHTML = `
+                    🎉 <strong>ABSOLUTELY RIGHT!</strong> 🎉
+                    <br><br>
+                    The scholars wrote down Tajweed rules to <strong>SAVE the correct recitation</strong> of the Qur'an from mistakes! 📖
+                    <br><br>
+                    They protected Allah's words like TRUE HEROES! 💪👑
+                `;
+                createConfetti();
+                createBalloons();
+            } else {
+                resultText.innerHTML = `
+                    ❌ <strong>NOT QUITE!</strong> ❌
+                    <br><br>
+                    Think about it... Why would scholars protect the Qur'an? 💡
+                    <br><br>
+                    To keep it SAFE and PERFECT! 🕋
+                `;
+            }
+            resultDiv.style.display = 'block';
+        }
+
+        // SLIDE 15: Fast Quiz
+        function answerQ15(answer) {
+            const resultDiv = document.getElementById('result15');
+            const resultText = document.getElementById('resultText15');
+            
+            if (answer === 'B') {
+                resultText.innerHTML = `
+                    🏆 <strong>YOU'RE A TAJWEED CHAMPION!</strong> 🏆
+                    <br><br>
+                    <strong>CORRECT!</strong> Tajweed is ONLY for the Holy Qur'an! 📖✨
+                    <br><br>
+                    Normal Arabic, storybooks, and news don't need Tajweed!
+                    <br><br>
+                    Tajweed is the ROYAL DRESS CODE of Allah's words! 👑💎
+                `;
+                createConfetti();
+                createBalloons();
+            } else {
+                resultText.innerHTML = `
+                    ❌ <strong>THINK AGAIN!</strong> ❌
+                    <br><br>
+                    Tajweed is <strong>SPECIAL!</strong> It's only for the Holy Qur'an! 🕋
+                    <br><br>
+                    When you read a storybook, you just read normally! 📚
+                `;
+            }
+            resultDiv.style.display = 'block';
+        }
+
+
+        // SLIDE 20: Purpose of Tajweed
+        function answerQ20(answer) {
+            const resultDiv = document.getElementById('result20');
+            const resultText = document.getElementById('resultText20');
+            
+            if (answer === 'CORRECT') {
+                resultText.innerHTML = `
+                    🏆 <strong>BINGO! YOU'RE ABSOLUTELY RIGHT!</strong> 🏆
+                    <br><br>
+                    The PURPOSE of Tajweed is to <strong>PROTECT our recitation from errors</strong>!
+                    <br><br>
+                    So we read the Qur'an <strong>ACCURATELY</strong> and preserve the <strong>EXACT MEANINGS</strong> revealed by Allah! 📖👑✨
+                `;
+                createConfetti();
+                createBalloons();
+            }
+            resultDiv.style.display = 'block';
+        }
+
+        // SLIDE 23: Makhraj or Sifaat Quiz
+        function answerQ23(answer) {
+            const resultDiv = document.getElementById('result23');
+            const resultText = document.getElementById('resultText23');
+            
+            if (answer === 'A') {
+                resultText.innerHTML = `
+                    🏆 <strong>ABSOLUTELY CORRECT!</strong> 🏆
+                    <br><br>
+                    You're asking about <strong>MAKHRAJ (articulation point)!</strong> 🏠
+                    <br><br>
+                    Because it's about WHERE the letter comes from! 👂
+                    <br><br>
+                    <strong>Makhraj = Where (lips, throat, tongue)</strong>
+                    <br>
+                    <strong>Sifaat = How (heavy or light)</strong> 💪✨
+                `;
+                createConfetti();
+                createBalloons();
+            } else {
+                resultText.innerHTML = `
+                    ❌ <strong>NOT QUITE!</strong> ❌
+                    <br><br>
+                    Think about it... If we're asking WHERE the letter comes from...
+                    <br><br>
+                    That's about its <strong>ADDRESS (MAKHRAJ)!</strong> 🏠
+                `;
+            }
+            resultDiv.style.display = 'block';
+        }
+
+        // SLIDE 24: Why Study Tajweed
+        function answerQ24(answer) {
+            const resultDiv = document.getElementById('result24');
+            const resultText = document.getElementById('resultText24');
+            
+            if (answer === 'B') {
+                resultText.innerHTML = `
+                    🏆 <strong>PERFECT! YOU'RE ABSOLUTELY RIGHT!</strong> 🏆
+                    <br><br>
+                    We study Tajweed to recite the Qur'an <strong>BEAUTIFULLY and ACCURATELY!</strong> 📖
+                    <br><br>
+                    Exactly as Prophet Muhammad (SAW) received it from Angel Jibreel! 👑✨
+                    <br><br>
+                    <strong>That's the TRUE purpose of Tajweed!</strong> 💎
+                `;
+                createConfetti();
+                createBalloons();
+                resultText.style.lineHeight = '1'; // جعل ارتفاع السطر في أدنى حد
+            } else {
+                resultText.innerHTML = `
+                    ❌ <strong>NOT THE REAL REASON!</strong> ❌
+                    <br><br>
+                    Tajweed is much bigger than just passing an exam! 📖
+                    <br><br>
+                    Think about preserving Allah's holy words! 🕋✨
+                `;
+            }
+            resultDiv.style.display = 'block';
+        }
+
+        
+
+    </script>
+</body>
+</html>
